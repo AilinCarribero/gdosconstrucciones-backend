@@ -16,6 +16,7 @@ app.use(cors());
 require("dotenv").config();
 
 // routes
+app.use('/');
 app.use('/api/auth', require('./router/authRoute'));
 app.use('/api/egresos', require('./router/egresosRoute'));
 //app.use('/api/ingreso', require('./router/ingresoRoute'));
