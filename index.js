@@ -16,9 +16,6 @@ app.use(cors());
 require("dotenv").config();
 
 // routes
-app.use('/', () => {
-    <div>Hola!! Que haces aqui?</div>
-});
 app.use('/api/auth', require('./router/authRoute'));
 app.use('/api/egresos', require('./router/egresosRoute'));
 //app.use('/api/ingreso', require('./router/ingresoRoute'));
