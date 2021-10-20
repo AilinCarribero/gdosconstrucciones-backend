@@ -3,11 +3,11 @@ const mysql = require('mysql');
 
 const connection = mysql.createConnection({
     multipleStatements: true,
-    host: us-cdbr-east-04.cleardb.com,//process.env.HOST,
-    database: heroku_aeed661c917f2ad,//process.env.DB_NAME,
+    host: 'us-cdbr-east-04.cleardb.com',//process.env.HOST,
+    database: 'heroku_aeed661c917f2ad',//process.env.DB_NAME,
     //port: process.env.DB_PORT,
-    user: bae7330e749d8b,//process.env.DB_USER,
-    password: d1eedbfb//process.env.DB_PASSWORD,
+    user: 'bae7330e749d8b',//process.env.DB_USER,
+    password: 'd1eedbfb'//process.env.DB_PASSWORD,
 })
 
 //mysql://bae7330e749d8b:d1eedbfb@us-cdbr-east-04.cleardb.com/heroku_aeed661c917f2ad?reconnect=true
