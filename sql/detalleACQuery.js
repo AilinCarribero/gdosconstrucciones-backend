@@ -1,3 +1,3 @@
 exports.selectDetalleAC = () => {
-    return `SELECT * FROM gdosconstrucciones.detalle_analisis_costo`
+    return `SELECT * FROM heroku_aeed661c917f2ad.detalle_analisis_costo`
 }

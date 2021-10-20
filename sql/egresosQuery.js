@@ -1,5 +1,5 @@
 exports.insertEgreso = (datos) => {
-    return `INSERT INTO gdosconstrucciones.egreso(id_proyecto, fecha_pago, fecha_diferido_pago, id_forma_pago, id_user, id_analisis_costo, valor_pago, observaciones, cuotas, cuota, id_comprobante_pago, numero_comprobante, id_detalle_ac) 
+    return `INSERT INTO heroku_aeed661c917f2ad.egreso(id_proyecto, fecha_pago, fecha_diferido_pago, id_forma_pago, id_user, id_analisis_costo, valor_pago, observaciones, cuotas, cuota, id_comprobante_pago, numero_comprobante, id_detalle_ac) 
     VALUES (
         '${datos.id_proyecto}',
         '${datos.fecha_pago}',
@@ -21,9 +21,9 @@ exports.listEgresos = () => {
     return `SELECT egreso.id_egreso, egreso.id_proyecto, egreso.fecha_pago, egreso.fecha_diferido_pago, 
     forma_pago.forma_pago, user.nombre_apellido, analisis_costo.analisis_costo, 
     egreso.valor_pago, egreso.observaciones
-    FROM (((gdosconstrucciones.egreso AS egreso 
-    INNER JOIN gdosconstrucciones.forma_pago AS forma_pago ON egreso.id_forma_pago=forma_pago.id_forma_pago)
-    INNER JOIN gdosconstrucciones.usuario AS user ON egreso.id_user=user.id_user)
-    INNER JOIN gdosconstrucciones.analisis_costo AS analisis_costo ON egreso.id_analisis_costo=analisis_costo.id_analisis_costo) 
+    FROM (((heroku_aeed661c917f2ad.egreso AS egreso 
+    INNER JOIN heroku_aeed661c917f2ad.forma_pago AS forma_pago ON egreso.id_forma_pago=forma_pago.id_forma_pago)
+    INNER JOIN heroku_aeed661c917f2ad.usuario AS user ON egreso.id_user=user.id_user)
+    INNER JOIN heroku_aeed661c917f2ad.analisis_costo AS analisis_costo ON egreso.id_analisis_costo=analisis_costo.id_analisis_costo) 
     `
 }

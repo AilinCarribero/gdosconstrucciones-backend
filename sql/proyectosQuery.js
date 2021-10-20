@@ -1,11 +1,11 @@
 exports.listProyectos = () => {
-    return `SELECT * FROM gdosconstrucciones.proyecto `
+    return `SELECT * FROM heroku_aeed661c917f2ad.proyecto `
 }
-//INNER JOIN gdosconstrucciones.ingreso AS ingreso ON proyecto.id_proyecto=ingreso.id_proyecto)
+//INNER JOIN heroku_aeed661c917f2ad.ingreso AS ingreso ON proyecto.id_proyecto=ingreso.id_proyecto)
 
 exports.insertProyecto = (datos) => {
     console.log(datos);
-    return `INSERT INTO gdosconstrucciones.proyecto(id_proyecto, id_unidad_negocio, id_centro_costo, id_cliente, costo, venta, fecha_i_proyecto, fecha_f_proyecto, id_estado) 
+    return `INSERT INTO heroku_aeed661c917f2ad.proyecto(id_proyecto, id_unidad_negocio, id_centro_costo, id_cliente, costo, venta, fecha_i_proyecto, fecha_f_proyecto, id_estado) 
     VALUES (
         '${datos.id_proyecto}',
         '${datos.id_unidad_negocio}',

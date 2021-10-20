@@ -1,3 +1,3 @@
 exports.selectComprobantePago = () => {
-    return `SELECT * FROM gdosconstrucciones.comprobante_pago`
+    return `SELECT * FROM heroku_aeed661c917f2ad.comprobante_pago`
 }
