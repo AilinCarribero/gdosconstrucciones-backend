@@ -87,7 +87,6 @@ exports.registrar = async (req, res) => {
             if(response){
                 res.json(response);
                 //console.log(response);
-                res.json(err);
             }
             res.end();
         });
