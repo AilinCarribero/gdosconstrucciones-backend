@@ -14,13 +14,7 @@ const connection = mysql.createConnection({
 //mysql://bae7330e749d8b:d1eedbfb@us-cdbr-east-04.cleardb.com/heroku_aeed661c917f2ad?reconnect=true
 
 connection.connect(err => {
-    if(err){
-        //console.log('Error de conexion con la bd: ' + err);
-        //throw err;
-    } else {
-        //console.log('Conexion con la BD exitosa: '+ process.env.DB_NAME);
-       // connection.release();
-    }
+    
     return;
 })
 
