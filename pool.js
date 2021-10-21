@@ -15,10 +15,10 @@ const connection = mysql.createConnection({
 
 connection.connect(err => {
     if(err){
-        console.log('Error de conexion con la bd: ' + err);
+        //console.log('Error de conexion con la bd: ' + err);
         throw error;
     } else {
-        console.log('Conexion con la BD exitosa: '+ process.env.DB_NAME);
+        //console.log('Conexion con la BD exitosa: '+ process.env.DB_NAME);
        // connection.release();
     }
     return;

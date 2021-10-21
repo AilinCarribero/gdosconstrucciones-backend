@@ -9,7 +9,7 @@ const sqlRango = require('../sql/rangoQuery');
 exports.verifyToken = async (req, res, next) => {
     try {
         const token = req.headers["token"];
-        console.log(token)
+        //console.log(token)
 
         if(!token) {
             return res.status(403).json({message: "No existe el token"});
@@ -19,7 +19,7 @@ exports.verifyToken = async (req, res, next) => {
             req.userId = user[0].id_user;
             req.userRango = user[0].id_rango;
 
-            console.log('userId: ' + req.userId + ' - rango: ' + req.userRango);
+            //console.log('userId: ' + req.userId + ' - rango: ' + req.userRango);
 
             if(!user){
                 return res.status(404).json({message: "No existe el usuario"});
@@ -33,8 +33,8 @@ exports.verifyToken = async (req, res, next) => {
 }
 
 exports.verifyAdmin = async (req, res, next) => {
-    console.log(req.userId);
-    console.log(req.userRango);
+    //console.log(req.userId);
+    //console.log(req.userRango);
     const userRango = await bd.query(sqlRango.busquedaRango(req.userRango));
 
     if(userRango == 'admin') {

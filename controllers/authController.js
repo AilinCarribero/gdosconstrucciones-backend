@@ -11,7 +11,8 @@ exports.getUser = async (req, res) => {
     try {
         bd.query(`SELECT * FROM gdosconstrucciones.usuario`, (err, response) => {
             if(err){
-                console.log(err);
+                //console.log(err);
+                res.json(err);
             }
             if(response){
                 res.json(response);
@@ -32,7 +33,8 @@ exports.login = async (req, res) => {
         try {
             bd.query(sql.login(correo), async (err, response) => {
                 if(err){
-                    console.log(err);
+                    //console.log(err);
+                    res.json(err);
                 }
                 if(response){
                      if(await bcryptjs.compare(password, response[0].password)) {
@@ -79,11 +81,13 @@ exports.registrar = async (req, res) => {
             '${rango}'
         )`, (err, response) => {
             if(err){
-                console.log(err);
+                //console.log(err);
+                res.json(err);
             }
             if(response){
                 res.json(response);
-                console.log(response);
+                //console.log(response);
+                res.json(err);
             }
             res.end();
         });

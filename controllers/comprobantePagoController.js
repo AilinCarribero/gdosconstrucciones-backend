@@ -6,7 +6,8 @@ exports.listComprobantePago = async (req, res) => {
     try {
         bd.query(sql.selectComprobantePago(), async (err, response) => {
             if(err){
-                console.log('Error comprobante pago: '+ err);
+                //console.log('Error comprobante pago: '+ err);
+                res.json(err);
             }
             if(response){
                 res.json(response);
