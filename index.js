@@ -7,7 +7,7 @@ const app = express();
 
 // middlewares
 app.use(cors({
-    "origin": "*",
+    "origin": ["https://prueba-test-g2c.netlify.app/"],
     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
     "preflightContinue": false,
     "optionsSuccessStatus": 204
