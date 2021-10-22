@@ -9,9 +9,6 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(bodyParser.raw());
 app.use(cors());
 require("dotenv").config();
 
@@ -29,5 +26,5 @@ const port = process.env.PORT || 5030 ;
 
 // listen.port
 app.listen(port, () => {
-    //console.log(`Aplicacion en el puerto ${port}`);
+    console.log(`Aplicacion en el puerto ${port}`);
 });
