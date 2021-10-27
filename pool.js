@@ -11,8 +11,6 @@ const connection = mysql.createConnection({
     debug: false
 })
 
-//mysql://bae7330e749d8b:d1eedbfb@us-cdbr-east-04.cleardb.com/heroku_aeed661c917f2ad?reconnect=true
-
 connection.connect(err => {
     if(err){
         console.log('Error de conexion con la bd: ' + err);

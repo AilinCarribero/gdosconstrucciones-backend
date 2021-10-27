@@ -1,5 +1,4 @@
-const { json } = require('body-parser');
-const bd = require('../pool');
+const bd = require('../../pool');
 const sql = require('../sql/analisisCostoQuery');
 const sqlDAC = require('../sql/detalleACQuery');
 
@@ -25,10 +24,11 @@ exports.listACDetalles = async (req, res) => {
     try {
         bd.query(sqlDAC.selectDetalleAC , async (err, response) => {
             if(err){
-                //console.log('Error detalle analisis costo: '+ err);
+                console.log('Error detalle analisis costo: '+ err);
                 res.json(err);
             }
             if(response){
+                console.log(response)
                 res.json(response);
             }
             res.end();

@@ -1,4 +1,4 @@
-const bd = require('../pool');
+const bd = require('../../pool');
 const sql = require('../sql/proyectosQuery');
 const sqlUnidadNegocio = require('../sql/unidadNegocioQuery');
 const sqlCentroCosto = require('../sql/centroCostoQuery');
@@ -30,6 +30,7 @@ exports.insertProyecto = async (req, res) => {
         -cliente
         -armar con esos 3 el id
     */
+    console.log(req.body);
     try {
         bd.query(sqlCentroCosto.busquedaIdCentroCosto(req.body.id_centro_costo), async (err, response) => {
             if(err) {
@@ -67,7 +68,7 @@ exports.insertProyecto = async (req, res) => {
                                     //insertamos en la base de datos la informacion
                                     bd.query(sql.insertProyecto(req.body), async (err, response) => {
                                         if(err) {
-                                            //console.log('Error al insertar proyecto: '+ err);
+                                            console.log('Error al insertar proyecto: '+ err);
                                             res.json(err);
                                         }
                                         if(response) {

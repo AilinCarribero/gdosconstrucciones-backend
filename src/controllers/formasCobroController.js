@@ -1,12 +1,11 @@
-const bd = require('../pool');
-const sql = require('../sql/comprobantePagoQuery');
+const bd = require('../../pool');
+const sql = require('../sql/formasCobroQuery');
 
 //listar todos los formas de pago disponibles
-exports.listComprobantePago = async (req, res) => {
+exports.listFormasCobro = async (req, res) => {
     try {
-        bd.query(sql.selectComprobantePago(), async (err, response) => {
+        bd.query(sql.listFormaCobro(), async (err, response) => {
             if(err){
-                //console.log('Error comprobante pago: '+ err);
                 res.json(err);
             }
             if(response){

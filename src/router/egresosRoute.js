@@ -5,6 +5,6 @@ const { insertEgreso, listEgresos } = require('../controllers/egresosController'
 const { verifyToken } = require('../middlewares/authVerify');
 
 router.post('/insert', verifyToken, insertEgreso);
-router.get('/list', verifyToken, listEgresos);
+router.get('/', verifyToken, listEgresos);
 
 module.exports = router;

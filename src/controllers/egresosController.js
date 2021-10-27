@@ -1,8 +1,5 @@
-const bd = require('../pool');
+const bd = require('../../pool');
 const sql = require('../sql/egresosQuery');
-const sqlUser = require('../sql/authQuery');
-const sqlAnalisisCosto = require('../sql/analisisCostoQuery');
-const sqlFormaPago = require('../sql/formasPagoQuery');
 
 //Agregar egreso
 exports.insertEgreso = async (req, res) => {
@@ -59,5 +56,4 @@ exports.listEgresos = async (req, res) => {
     } catch (error) {
         return res.json(error);
     }
-
 }

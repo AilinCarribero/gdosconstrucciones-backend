@@ -1,9 +1,8 @@
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { promisify } = require('util');
 
 //Base de Datos
-const bd = require('../pool');
+const bd = require('../../pool');
 const sql = require('../sql/authQuery');
 
 //Busca los usuarios registrados

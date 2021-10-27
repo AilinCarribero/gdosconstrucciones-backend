@@ -1,31 +1,32 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
-const bodyParser = require("body-parser");
 
 const app = express();
 
 // middlewares
 app.use(cors({
-    "origin": ["https://prueba-test-g2c.netlify.app/"],
-    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
-    "preflightContinue": false,
-    "optionsSuccessStatus": 204,
-    "credentials": true
-  }));
+    "allowedHeaders":['Content-Type', 'Authorization']
+}));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 require("dotenv").config();
+//allow OPTIONS on all resources
+app.options('*', cors())
 
 // routes
-app.use('/api/auth', require('./router/authRoute'));
-app.use('/api/egresos', require('./router/egresosRoute'));
-//app.use('/api/ingreso', require('./router/ingresoRoute'));
-app.use('/api/analisis-costos', require('./router/analisisCostosRoute'));
-app.use('/api/formas-pago', require('./router/formasPagoRoute'));
-app.use('/api/proyectos', require('./router/proyectosRoute'));
-app.use('/api/comprobante-pago', require('./router/comprobantePagoRoute'));
+app.use('/api/auth', require('./src/router/authRoute'));
+app.use('/api/egresos', require('./src/router/egresosRoute'));
+app.use('/api/ingresos', require('./src/router/ingresosRoute'));
+app.use('/api/analisis-costos', require('./src/router/analisisCostosRoute'));
+app.use('/api/formas-pago', require('./src/router/formasPagoRoute'));
+app.use('/api/formas-cobro', require('./src/router/formasCobroRoute'));
+app.use('/api/proyectos', require('./src/router/proyectosRoute'));
+app.use('/api/comprobante-pago', require('./src/router/comprobantePagoRoute'));
+app.use('/api/centro-costo', require('./src/router/centroCostoRoute'));
+app.use('/api/unidad-negocio', require('./src/router/unidadNegocioRoute'));
+app.use('/api/cliente', require('./src/router/clienteRoute'));
 
 // port
 const port = process.env.PORT || 5030 ;

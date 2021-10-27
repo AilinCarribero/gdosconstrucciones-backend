@@ -1,12 +1,11 @@
-const bd = require('../pool');
-const sql = require('../sql/formasPagoQuery');
+const bd = require('../../pool');
+const sql = require('../sql/clienteQuery');
 
 //listar todos los formas de pago disponibles
-exports.listFormasPago = async (req, res) => {
+exports.listClientes = async (req, res) => {
     try {
-        bd.query(sql.listFormaPago(), async (err, response) => {
+        bd.query(sql.selectCliente(), async (err, response) => {
             if(err){
-                //console.log('Error forma pago: '+ err);
                 res.json(err);
             }
             if(response){

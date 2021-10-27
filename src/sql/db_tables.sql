@@ -142,7 +142,7 @@ insert into forma_cobro (forma_cobro,requiere_f_cobro,requiere_d_cobro,id_centro
 
 /*-------------------------------------------------------------------------------------------------------------------------*/
 /* Create new table */
-create table ingreso (id_ingreso int auto_increment primary key, id_proyecto varchar(60), fecha_cobro date, fecha_diferido_cobro date, id_forma_cobro int, id_user int, valor_pago float, cuotas int, cuota int, observaciones varchar(10000));
+create table ingreso (id_ingreso int auto_increment primary key, id_proyecto varchar(60), fecha_cobro date, fecha_diferido_cobro date, id_forma_cobro int, id_user int, valor_cobro float, cuotas int, cuota int, observaciones varchar(10000));
 
 /* Insert new value so we can test the methods */
 /*insert into ingreso () value (""); /*id = 1*/
