@@ -5,15 +5,11 @@ const cors = require("cors");
 const app = express();
 
 // middlewares
-app.use(cors({
-    "allowedHeaders":['Content-Type', 'Authorization']
-}));
+app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 require("dotenv").config();
-//allow OPTIONS on all resources
-app.options('*', cors())
 
 // routes
 app.use('/api/auth', require('./src/router/authRoute'));
