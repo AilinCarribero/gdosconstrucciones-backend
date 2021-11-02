@@ -20,20 +20,20 @@ exports.listAnalisisCosto = async (req, res) => {
     }  
 }
 
-exports.listACDetalles = async (req, res) => {
+exports.listAnalisisCostosDetalles = async (req, res) => {
     try {
-        bd.query(sqlDAC.selectDetalleAC , async (err, response) => {
+        bd.query(sqlDAC.selectDetalleAC() , async (err, response) => {
             if(err){
-                console.log('Error detalle analisis costo: '+ err);
+                //console.log('Error detalle analisis costo: '+ err);
                 res.json(err);
             }
             if(response){
-                console.log(response)
                 res.json(response);
             }
             res.end();
         })
     } catch (error) {
+        console.log(error);
         return res.json(error);
     }  
 }

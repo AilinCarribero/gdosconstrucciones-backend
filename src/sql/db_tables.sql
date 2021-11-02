@@ -138,6 +138,8 @@ insert into forma_cobro (forma_cobro,requiere_f_cobro,requiere_d_cobro,id_centro
 insert into forma_cobro (forma_cobro,requiere_f_cobro,requiere_d_cobro,id_centro_costo) value ("Inversiones Financieras","1","1","1"); /*id = 7*/
 insert into forma_cobro (forma_cobro,requiere_f_cobro,requiere_d_cobro,id_centro_costo) value ("Apalancamiento","1","1","1"); /*id = 8*/
 insert into forma_cobro (forma_cobro,requiere_f_cobro,requiere_d_cobro,id_centro_costo) value ("Credito Bancario","1","1","1"); /*id = 9*/
+insert into forma_cobro (forma_cobro,requiere_f_cobro,requiere_d_cobro,id_centro_costo) value ("E-Cheq","1","1","2");
+insert into forma_cobro (forma_cobro,requiere_f_cobro,requiere_d_cobro,id_centro_costo) value ("C.P.D.","1","1","2");
 insert into forma_cobro (forma_cobro,requiere_f_cobro,requiere_d_cobro,id_centro_costo) value ("Otro - Inusual","1","1","1"); /*id = 10*/
 
 /*-------------------------------------------------------------------------------------------------------------------------*/

@@ -59,12 +59,9 @@ exports.insertProyecto = async (req, res) => {
                             if(response){
                                 req.nombreCliente = await response[0].nombre_cliente;
                 
-                                //console.log(req.centroCosto);
-                                //console.log(req.unidadNegocio);
-                                //console.log(req.nombreCliente);
                                 if(req.centroCosto && req.unidadNegocio && req.nombreCliente){
                                     req.body.id_proyecto = req.centroCosto +'-'+ req.unidadNegocio +'-'+ req.nombreCliente; //armamos el id del proyecto
-                                 
+                                    
                                     //insertamos en la base de datos la informacion
                                     bd.query(sql.insertProyecto(req.body), async (err, response) => {
                                         if(err) {
