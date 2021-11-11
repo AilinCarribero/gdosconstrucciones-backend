@@ -36,7 +36,7 @@ exports.login = async (req, res) => {
                     res.json(err);
                 }
                 if(response){
-                     if(await bcryptjs.compare(password, response[0].password)) {
+                     if(await bcryptjs.compare(password, response[0].contrasegna)) {
                         const rango = response[0].rango;
                         const id = response[0].id_user;
 
