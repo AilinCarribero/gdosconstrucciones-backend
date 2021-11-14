@@ -29,3 +29,17 @@ exports.listEgresos = () => {
     INNER JOIN comprobante_pago AS comprobante_pago ON egreso.id_comprobante_pago=comprobante_pago.id_comprobante_pago) 
     `
 }
+
+exports.listEgresosId = (id) => {
+    return `SELECT egreso.id_egreso, egreso.id_proyecto, egreso.fecha_pago, egreso.fecha_diferido_pago, egreso.cuota, egreso.cuotas,
+    forma_pago.forma_pago, user.nombre_apellido, analisis_costo.analisis_costo, 
+    egreso.valor_pago, egreso.observaciones, egreso.numero_comprobante,
+    comprobante_pago.tipo_comprobante, comprobante_pago.nombre_comprobante
+    FROM ((((egreso AS egreso 
+    INNER JOIN forma_pago AS forma_pago ON egreso.id_forma_pago=forma_pago.id_forma_pago)
+    INNER JOIN usuario AS user ON egreso.id_user=user.id_user)
+    INNER JOIN analisis_costo AS analisis_costo ON egreso.id_analisis_costo=analisis_costo.id_analisis_costo)
+    INNER JOIN comprobante_pago AS comprobante_pago ON egreso.id_comprobante_pago=comprobante_pago.id_comprobante_pago) 
+    WHERE id_proyecto='${id}' ORDER BY fecha_pago desc
+    `
+}

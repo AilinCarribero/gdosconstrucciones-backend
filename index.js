@@ -22,7 +22,6 @@ app.use('/api/proyectos', require('./src/router/proyectosRoute'));
 app.use('/api/comprobante-pago', require('./src/router/comprobantePagoRoute'));
 app.use('/api/centro-costo', require('./src/router/centroCostoRoute'));
 app.use('/api/unidad-negocio', require('./src/router/unidadNegocioRoute'));
-app.use('/api/cliente', require('./src/router/clienteRoute'));
 
 // port
 const port = process.env.PORT || 5030 ;

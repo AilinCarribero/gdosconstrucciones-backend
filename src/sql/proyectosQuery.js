@@ -5,12 +5,12 @@ exports.listProyectos = () => {
 
 exports.insertProyecto = (datos) => {
     //console.log(datos);
-    return `INSERT INTO proyecto(id_proyecto, id_unidad_negocio, id_centro_costo, id_cliente, costo, venta, fecha_i_proyecto, fecha_f_proyecto, id_estado) 
+    return `INSERT INTO proyecto(id_proyecto, id_unidad_negocio, id_centro_costo, cliente, costo, venta, fecha_i_proyecto, fecha_f_proyecto, id_estado) 
     VALUES (
         '${datos.id_proyecto}',
         '${datos.id_unidad_negocio}',
         '${datos.id_centro_costo}',
-        '${datos.id_cliente}',
+        '${datos.cliente}',
         '${datos.costo}',
         '${datos.venta}',
         '${datos.fecha_i_proyecto}',

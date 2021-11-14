@@ -25,11 +25,11 @@ insert into rango (rango) value ("comun"); /*id = 2*/
 
 /*-------------------------------------------------------------------------------------------------------------------------*/
 /* Create new table */
-create table proyecto (id_proyecto varchar(100) primary key, id_unidad_negocio int, id_centro_costo int, id_cliente int, costo float, venta float, fecha_i_proyecto date, fecha_f_proyecto date, id_estado int);
+create table proyecto (id_proyecto varchar(100) primary key, id_unidad_negocio int, id_centro_costo int, cliente int, costo float, venta float, fecha_i_proyecto date, fecha_f_proyecto date, id_estado int);
 
 /* Insert new value so we can test the methods */
-insert into proyecto(id_proyecto,id_unidad_negocio,id_centro_costo,id_cliente,costo,venta,fecha_i_proyecto,fecha_f_proyecto,id_estado) value ("CCP-PP-GDosConstrucciones","1","2","1","10000000","20000000","12-10-2021","12-10-2022","1"); 
-insert into proyecto(id_proyecto,id_unidad_negocio,id_centro_costo,id_cliente,costo,venta,fecha_i_proyecto,fecha_f_proyecto,id_estado) value ("CCC-PP-GDosConstrucciones","1","1","1","10000000","20000000","12-10-2021","12-10-2022","1"); 
+insert into proyecto(id_proyecto,id_unidad_negocio,id_centro_costo,cliente,costo,venta,fecha_i_proyecto,fecha_f_proyecto,id_estado) value ("CCP-PP-GDosConstrucciones","1","2","1","10000000","20000000","12-10-2021","12-10-2022","1"); 
+insert into proyecto(id_proyecto,id_unidad_negocio,id_centro_costo,cliente,costo,venta,fecha_i_proyecto,fecha_f_proyecto,id_estado) value ("CCC-PP-GDosConstrucciones","1","1","1","10000000","20000000","12-10-2021","12-10-2022","1"); 
 
 /*-------------------------------------------------------------------------------------------------------------------------*/
 /* Create new table */
@@ -47,13 +47,6 @@ create table unidad_negocio (id_unidad_negocio int auto_increment primary key, i
 insert into unidad_negocio (id_centro_costo,unidad_negocio,sigas_uc) value ("2","Público Privado","PP"); /*id = 1*/
 insert into unidad_negocio (id_centro_costo,unidad_negocio,sigas_uc) value ("2","Desarrollos","D"); /*id = 2*/
 insert into unidad_negocio (id_centro_costo,unidad_negocio,sigas_uc) value ("2","Módulos","M"); /*id = 3*/
-
-/*-------------------------------------------------------------------------------------------------------------------------*/
-/* Create new table */
-create table cliente (id_cliente int auto_increment primary key, nombre_cliente varchar(60));
-
-/* Insert new value so we can test the methods */
-insert into cliente (nombre_cliente) value ("GDosConstrucciones"); /*id = 1*/
 
 /*-------------------------------------------------------------------------------------------------------------------------*/
 /* Create new table */

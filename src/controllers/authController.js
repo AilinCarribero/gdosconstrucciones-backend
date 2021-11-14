@@ -8,12 +8,14 @@ const sql = require('../sql/authQuery');
 //Busca los usuarios registrados
 exports.getUser = async (req, res) => {
     try {
-        bd.query(`SELECT * FROM gdosconstrucciones.usuario`, (err, response) => {
+        bd.query(`SELECT * FROM usuario`, (err, response) => {
             if(err){
                 //console.log(err);
                 res.json(err);
             }
             if(response){
+                response.statusText = "Ok";
+                response.status = 200;
                 res.json(response);
             } 
             res.end();
@@ -66,14 +68,14 @@ exports.login = async (req, res) => {
 //Agrega un nuevo usuario
 exports.registrar = async (req, res) => {
     const user = req.body.nombre_apellido;
-    const password = req.body.password;
+    const password = req.body.contrasegna;
     const correo = req.body.correo;
-    const rango = req.body.rango;
+    const rango = req.body.id_rango;
 
     let passwordHash =await bcryptjs.hash(password , 10);
 
     try{
-        bd.query(`INSERT INTO gdosconstrucciones.usuario(nombre_apellido, correo, password, id_rango) VALUES(
+        bd.query(`INSERT INTO usuario(nombre_apellido, correo, contrasegna, id_rango) VALUES(
             '${user}',
             '${correo}',
             '${passwordHash}',
@@ -84,8 +86,9 @@ exports.registrar = async (req, res) => {
                 res.json(err);
             }
             if(response){
+                response.statusText = "Ok";
+                response.status = 200;
                 res.json(response);
-                //console.log(response);
             }
             res.end();
         });

@@ -25,6 +25,8 @@ exports.insertIngreso = async (req, res) => {
                 res.json(err);
             }
             if (response) {
+                response.statusText = "Ok";
+                response.status = 200;
                 res.json(response);
             }
             res.end();
@@ -43,6 +45,27 @@ exports.listIngresos = async (req, res) => {
                 res.json(err);
             }
             if (response) {
+                response.statusText = "Ok";
+                response.status = 200;
+                res.json(response);
+            }
+            res.end();
+        })
+    } catch (error) {
+        return res.json(error);
+    }
+}
+
+//Listar ingresos por id de proyecto
+exports.listIngresosId = async (req, res) => {
+    try {
+        bd.query(sql.listIngresosId(req.params.id), (err, response) => {
+            if (err) {
+                res.json(err);
+            }
+            if (response) {
+                response.statusText = "Ok";
+                response.status = 200;
                 res.json(response);
             }
             res.end();

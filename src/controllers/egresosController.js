@@ -25,11 +25,11 @@ exports.insertEgreso = async (req, res) => {
         //Inserta el nuevo egreso
         bd.query(sql.insertEgreso(dato), async (err, response) => {
             if (err) {
-                ////console.log('Error egreso: ' + err);
                 res.json(err);
             }
             if (response) {
-                //console.log('Se agrego con exito');
+                response.statusText = "Ok";
+                response.status = 200;
                 res.json(response);
             }
             res.end();
@@ -45,10 +45,30 @@ exports.listEgresos = async (req, res) => {
     try {
         bd.query(sql.listEgresos(), (err, response) => {
             if (err) {
-                //console.log('Error al listar egresos: ' + err);
                 res.json(err);
             }
             if (response) {
+                response.statusText = "Ok";
+                response.status = 200;
+                res.json(response);
+            }
+            res.end();
+        })
+    } catch (error) {
+        return res.json(error);
+    }
+}
+
+//Listar egresos por id de proyecto
+exports.listEgresosId = async (req, res) => {
+    try {
+        bd.query(sql.listEgresosId(req.params.id), (err, response) => {
+            if (err) {
+                res.json(err);
+            }
+            if (response) {
+                response.statusText = "Ok";
+                response.status = 200;
                 res.json(response);
             }
             res.end();
