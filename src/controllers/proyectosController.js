@@ -31,9 +31,9 @@ exports.insertProyecto = async (req, res) => {
     if(!req.body.venta){
         req.body.venta = 0;
     }
-    if(!req.body.fecha_f_proyecto){
+    /*if(!req.body.fecha_f_proyecto){
         req.body.fecha_f_proyecto = NULL;
-    }
+    }*/
 
     try {
         bd.query(sqlCentroCosto.busquedaIdCentroCosto(req.body.id_centro_costo), async (err, response) => {
