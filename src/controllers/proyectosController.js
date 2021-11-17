@@ -32,7 +32,7 @@ exports.insertProyecto = async (req, res) => {
         req.body.venta = 0;
     }
     if(!req.body.fecha_f_proyecto){
-        req.body.fecha_f_proyecto = '0-0-0';
+        req.body.fecha_f_proyecto = NULL;
     }
 
     try {
