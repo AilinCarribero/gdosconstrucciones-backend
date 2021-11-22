@@ -28,8 +28,11 @@ insert into rango (rango) value ("comun"); /*id = 2*/
 create table proyecto (id_proyecto varchar(100) primary key, id_unidad_negocio int, id_centro_costo int, cliente int, costo float, venta float, fecha_i_proyecto date, fecha_f_proyecto date, id_estado int);
 
 /* Insert new value so we can test the methods */
-insert into proyecto(id_proyecto,id_unidad_negocio,id_centro_costo,cliente,costo,venta,fecha_i_proyecto,fecha_f_proyecto,id_estado) value ("CCP-PP-GDosConstrucciones","1","2","1","10000000","20000000","12-10-2021","12-10-2022","1"); 
-insert into proyecto(id_proyecto,id_unidad_negocio,id_centro_costo,cliente,costo,venta,fecha_i_proyecto,fecha_f_proyecto,id_estado) value ("CCC-PP-GDosConstrucciones","1","1","1","10000000","20000000","12-10-2021","12-10-2022","1"); 
+insert into proyecto(id_proyecto,id_unidad_negocio,id_centro_costo,cliente,costo,venta,fecha_i_proyecto,fecha_f_proyecto,id_estado) value ("CCC-PP-GDosConstrucciones","1","1",NULL,"0","0",NULL,NULL,"1"); 
+insert into proyecto(id_proyecto,id_unidad_negocio,id_centro_costo,cliente,costo,venta,fecha_i_proyecto,fecha_f_proyecto,id_estado) value ("CCC-PP-GDosConstrucciones","2","1",NULL,"0","0",NULL,NULL,"1"); 
+insert into proyecto(id_proyecto,id_unidad_negocio,id_centro_costo,cliente,costo,venta,fecha_i_proyecto,fecha_f_proyecto,id_estado) value ("CCC-PP-GDosConstrucciones","3","1",NULL,"0","0",NULL,NULL,"1"); 
+/*insert into proyecto(id_proyecto,id_unidad_negocio,id_centro_costo,cliente,costo,venta,fecha_i_proyecto,fecha_f_proyecto,id_estado) value ("CCP-PP-GDosConstrucciones","1","2","1","10000000","20000000","12-10-2021","12-10-2022","1"); 
+insert into proyecto(id_proyecto,id_unidad_negocio,id_centro_costo,cliente,costo,venta,fecha_i_proyecto,fecha_f_proyecto,id_estado) value ("CCC-PP-GDosConstrucciones","1","1","1","10000000","20000000","12-10-2021","12-10-2022","1"); */
 
 /*-------------------------------------------------------------------------------------------------------------------------*/
 /* Create new table */
