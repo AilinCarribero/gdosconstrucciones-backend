@@ -24,7 +24,6 @@ exports.listProyectos = async (req, res) => {
 
 //Insertar un proyecto nuevo
 exports.insertProyecto = async (req, res) => {
-    console.log(req.body);
     if(!req.body.costo){
         req.body.costo = 0;
     }
@@ -57,7 +56,6 @@ exports.insertProyecto = async (req, res) => {
                             //insertamos en la base de datos la informacion
                             bd.query(sql.insertProyecto(req.body), async (err, response) => {
                                 if (err) {
-                                    console.log('Error al insertar proyecto: ' + err);
                                     res.json(err);
                                 }
                                 if (response) {

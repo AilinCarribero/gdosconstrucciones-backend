@@ -4,7 +4,6 @@ exports.listProyectos = () => {
 //INNER JOIN gdosconstrucciones.ingreso AS ingreso ON proyecto.id_proyecto=ingreso.id_proyecto)
 
 exports.insertProyecto = (datos) => {
-    //console.log(datos);
     return `INSERT INTO proyecto(id_proyecto, id_unidad_negocio, id_centro_costo, cliente, costo, venta, fecha_i_proyecto, fecha_f_proyecto, id_estado) 
     VALUES (
         '${datos.id_proyecto}',

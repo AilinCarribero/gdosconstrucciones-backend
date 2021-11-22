@@ -10,7 +10,6 @@ exports.getUser = async (req, res) => {
     try {
         bd.query(`SELECT * FROM usuario`, (err, response) => {
             if(err){
-                //console.log(err);
                 res.json(err);
             }
             if(response){
@@ -34,7 +33,7 @@ exports.login = async (req, res) => {
         try {
             bd.query(sql.login(correo), async (err, response) => {
                 if(err){
-                    //console.log(err);
+
                     res.json(err);
                 }
                 if(response){
@@ -82,7 +81,6 @@ exports.registrar = async (req, res) => {
             '${rango}'
         )`, (err, response) => {
             if(err){
-                //console.log(err);
                 res.json(err);
             }
             if(response){

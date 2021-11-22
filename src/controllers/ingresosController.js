@@ -3,35 +3,36 @@ const sql = require('../sql/ingresosQuery');
 
 //Agregar ingreso
 exports.insertIngreso = async (req, res) => {
-    const dato = req.body;
-    
-    if (!dato.fecha_diferido_cobro) {
-        dato.fecha_diferido_cobro = dato.fecha_cobro;
-    };
-    if (!dato.cuota) {
-        dato.cuota = 0;
-    }
-    if (!dato.cuotaNumero) {
-        dato.cuotaNumero = 0;
-    }
-    if (!dato.observaciones) {
-        dato.observaciones = '';
-    }
+    const datos = req.body;
 
     try {
         //Inserta el nuevo ingreso
-        bd.query(sql.insertIngreso(dato), async (err, response) => {
-            if (err) {
-                res.json(err);
+        datos.forEach(dato => {
+            if (!dato.fecha_diferido_cobro) {
+                dato.fecha_diferido_cobro = NULL;
+            };
+            if (!dato.cuota) {
+                dato.cuota = 0;
             }
-            if (response) {
-                response.statusText = "Ok";
-                response.status = 200;
-                res.json(response);
+            if (!dato.cuotaNumero) {
+                dato.cuotaNumero = 0;
             }
-            res.end();
-        })
+            if (!dato.observaciones) {
+                dato.observaciones = '';
+            }
 
+            bd.query(sql.insertIngreso(dato), async (err, response) => {
+                if (err) {
+                    res.json(err);
+                }
+                if (response) {
+                    response.statusText = "Ok";
+                    response.status = 200;
+                }
+            })
+        });
+        res.json(response);
+        res.end();
     } catch (error) {
         return res.json(error);
     }

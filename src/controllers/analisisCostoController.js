@@ -7,7 +7,6 @@ exports.listAnalisisCosto = async (req, res) => {
     try {
         bd.query(sql.selectAnalisisCosto() , async (err, response) => {
             if(err){
-                //console.log('Error analisis: '+ err);
                 res.json(err);
             }
             if(response){
@@ -26,7 +25,6 @@ exports.listAnalisisCostosDetalles = async (req, res) => {
     try {
         bd.query(sqlDAC.selectDetalleAC() , async (err, response) => {
             if(err){
-                //console.log('Error detalle analisis costo: '+ err);
                 res.json(err);
             }
             if(response){

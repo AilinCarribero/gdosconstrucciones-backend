@@ -9,7 +9,6 @@ const sqlRango = require('../sql/rangoQuery');
 exports.verifyToken = async (req, res, next) => {
     try {
         const authorization = req.headers["authorization"];
-        //console.log(authorization)
 
         if(!authorization || !authorization.toLowerCase().startsWith('bearer')) {
             return res.status(403).json({message: "No existe el token"});
@@ -20,8 +19,6 @@ exports.verifyToken = async (req, res, next) => {
             const user = await bd.query(sqlUser.busquedaIdUser(decoded.id)); //Si esto no funciona crear una busqueda que solo devuelva el id
             req.userId = user[0].id_user;
             req.userRango = user[0].id_rango;
-
-            //console.log('userId: ' + req.userId + ' - rango: ' + req.userRango);
 
             if(!user){
                 return res.status(404).json({message: "No existe el usuario"});

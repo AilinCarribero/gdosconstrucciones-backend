@@ -6,7 +6,6 @@ exports.listFormasPago = async (req, res) => {
     try {
         bd.query(sql.listFormaPago(), async (err, response) => {
             if(err){
-                //console.log('Error forma pago: '+ err);
                 res.json(err);
             }
             if(response){
