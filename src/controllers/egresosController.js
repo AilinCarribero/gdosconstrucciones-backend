@@ -9,7 +9,7 @@ exports.insertEgreso = async (req, res) => {
         //Inserta el nuevo egreso
         datos.forEach(dato => {
             if (!dato.fecha_diferido_pago) {
-                dato.fecha_diferido_pago = '0-0-0';
+                dato.fecha_diferido_pago = '0000-00-00 00:00:00';
             }
             
             if (!dato.cuota) {
