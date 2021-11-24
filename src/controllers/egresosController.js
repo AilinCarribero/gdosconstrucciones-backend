@@ -29,7 +29,7 @@ exports.insertEgreso = async (req, res) => {
             }
             
             if (!dato.id_comprobante_pago){
-                dato.id_comprobante_pago = 0
+                dato.id_comprobante_pago = 6
             }
 
             if(!dato.numero_comprobante) {
