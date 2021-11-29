@@ -1,3 +1,4 @@
+const { response } = require('express');
 const bd = require('../../pool');
 const sql = require('../sql/ingresosQuery');
 
@@ -7,7 +8,7 @@ exports.insertIngreso = async (req, res) => {
 
     try {
         //Inserta el nuevo ingreso
-        datos.forEach(async dato => {
+        datos.forEach(async (dato, i) => {
             if (!dato.fecha_diferido_cobro) {
                 dato.fecha_diferido_cobro = '0-0-0';
             }
@@ -20,18 +21,27 @@ exports.insertIngreso = async (req, res) => {
             if (!dato.observaciones) {
                 dato.observaciones = '';
             }
-            
-            bd.query(sql.insertIngreso(dato), async (err, response) => {
+
+            if (dato.cuotaNumero == 0) {
+                //Para guardar correctamente el valor de cobro nos aseguramos que este en un formato que la base de datos entienda
+                dato.valor_cobro = dato.valor_cobro.toString().replace(/\./g, '');
+                dato.valor_cobro = dato.valor_cobro.replace(/\,/g, '.');
+                dato.valor_cobro = parseFloat(dato.valor_cobro);
+            }
+
+            bd.query(sql.insertIngreso(dato), (err, response) => {
                 if (err) {
-                    err.statusText = "Error";
-                    err.status = 400;
+                    err.todoMal = "Error";
 
                     res.json(err)
-                } else if (response) {
-                    response.statusText = "Ok";
-                    response.status = 200;
-
-                    res.json(response);
+                    throw err;
+                } 
+                if (response) {
+                    response.todoOk = "Ok";
+                    
+                    if(datos.length-1 == i){
+                        res.json(response);
+                    }   
                 }
             })
         })

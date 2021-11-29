@@ -59,8 +59,8 @@ exports.insertProyecto = async (req, res) => {
                                     res.json(err);
                                 }
                                 if (response) {
-                                    response.statusText = "Ok";
-                                    response.status = 200;
+                                    response.todoOk = "Ok";
+                                    
                                     res.json(response);
                                 }
                                 res.end();

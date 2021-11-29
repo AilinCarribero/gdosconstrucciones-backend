@@ -8,13 +8,14 @@ const sql = require('../sql/authQuery');
 //Busca los usuarios registrados
 exports.getUser = async (req, res) => {
     try {
-        bd.query(`SELECT * FROM usuario`, (err, response) => {
+        bd.query(sql.selectUsers(), (err, response) => {
             if(err){
                 res.json(err);
             }
             if(response){
-                response.statusText = "Ok";
+                response.todoOk = "Ok";
                 response.status = 200;
+
                 res.json(response);
             } 
             res.end();
@@ -84,8 +85,8 @@ exports.registrar = async (req, res) => {
                 res.json(err);
             }
             if(response){
-                response.statusText = "Ok";
-                response.status = 200;
+                response.todoOk = "Ok";
+                
                 res.json(response);
             }
             res.end();

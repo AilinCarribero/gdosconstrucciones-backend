@@ -12,3 +12,9 @@ exports.login = (correo) => {
     INNER JOIN rango AS rango ON usuario.id_rango=rango.id_rango)
     WHERE correo='${correo}'`
 }
+
+exports.selectUsers = () => {
+    return `SELECT * 
+    FROM (usuario AS usuario 
+    INNER JOIN rango AS rango ON usuario.id_rango=rango.id_rango)`
+}
