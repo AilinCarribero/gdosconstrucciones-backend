@@ -36,7 +36,7 @@ exports.insertEgreso = async (req, res) => {
                 dato.numero_comprobante = 0
             }
             
-            if (dato.cuotaNumero == 0) {
+            if (parseInt(dato.cuota , 10) == 0) {
                 //Para guardar correctamente el valor de pago nos aseguramos que este en un formato que la base de datos entienda
                 dato.valor_pago = dato.valor_pago.toString().replace(/\./g, '');
                 dato.valor_pago = dato.valor_pago.replace(/\,/g, '.');

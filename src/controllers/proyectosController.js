@@ -50,9 +50,13 @@ exports.insertProyecto = async (req, res) => {
                     if (response) {
                         req.unidadNegocio = await response[0].siglas_uc;
                         
-                        if (req.centroCosto && req.unidadNegocio && req.body.cliente) {
-                            req.body.id_proyecto = req.centroCosto + '-' + req.unidadNegocio + '-' + req.body.cliente; //armamos el id del proyecto
-
+                        if (req.centroCosto && req.unidadNegocio) {
+                            //armamos el id del proyecto
+                            if(req.body.cliente){
+                                req.body.id_proyecto = req.centroCosto + '-' + req.unidadNegocio + '-' + req.body.cliente;
+                            } else {
+                                req.body.id_proyecto = req.centroCosto + '-' + req.unidadNegocio;
+                            }
                             //insertamos en la base de datos la informacion
                             bd.query(sql.insertProyecto(req.body), async (err, response) => {
                                 if (err) {

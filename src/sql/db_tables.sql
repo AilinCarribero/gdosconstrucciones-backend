@@ -65,12 +65,16 @@ insert into estado (estado) value ("Finalizado"); /*id = 3*/
 create table analisis_costo (id_analisis_costo int auto_increment primary key, analisis_costo varchar(60), requiere_detalle boolean, id_centro_costo int);
 
 /* Insert new value so we can test the methods */
-insert into analisis_costo (analisis_costo,requiere_detalle,id_centro_costo) value ("Material","0","2"); /*id = 1*/
-insert into analisis_costo (analisis_costo,requiere_detalle,id_centro_costo) value ("Mano de obra","0","2"); /*id = 2*/
-insert into analisis_costo (analisis_costo,requiere_detalle,id_centro_costo) value ("Otros-Inusual","1","2"); /*id = 3*/
-insert into analisis_costo (analisis_costo,requiere_detalle,id_centro_costo) value ("Bienes de Uso","1","1"); /*id = 4*/
-insert into analisis_costo (analisis_costo,requiere_detalle,id_centro_costo) value ("Gastos de Empresa","1","1"); /*id = 5*/
-insert into analisis_costo (analisis_costo,requiere_detalle,id_centro_costo) value ("Acopio de Materiales","1","1"); /*id = 6*/
+insert into analisis_costo (analisis_costo, requiere_detalle, id_centro_costo) value ("Material","0","2"); /*id = 1*/
+insert into analisis_costo (analisis_costo, requiere_detalle, id_centro_costo) value ("Mano de obra","0","2"); /*id = 2*/
+insert into analisis_costo (analisis_costo, requiere_detalle, id_centro_costo) value ("Otros-Inusual","1","2"); /*id = 3*/
+insert into analisis_costo (analisis_costo, requiere_detalle, id_centro_costo) value ("Bienes de Uso","1","1"); /*id = 4*/
+insert into analisis_costo (analisis_costo, requiere_detalle, id_centro_costo) value ("Gastos de Empresa","1","1"); /*id = 5*/
+insert into analisis_costo (analisis_costo, requiere_detalle, id_centro_costo) value ("Acopio de Materiales","1","1"); /*id = 6*/
+INSERT INTO analisis_costo (analisis_costo, requiere_detalle, id_centro_costo) VALUES ('Sueldo', '1', '3');
+INSERT INTO analisis_costo (analisis_costo, requiere_detalle, id_centro_costo) VALUES ('Gasto Operativo', '1', '3');
+INSERT INTO analisis_costo (analisis_costo, requiere_detalle, id_centro_costo) VALUES ('Alquiler', '1', '3');
+INSERT INTO analisis_costo (analisis_costo, requiere_detalle, id_centro_costo) VALUES ('Otro', '1', '3');
 
 /* Create new table */
 create table detalle_analisis_costo (id_detalle_ac int auto_increment primary key, id_analisis_costo int, detalle_ac varchar(100));
