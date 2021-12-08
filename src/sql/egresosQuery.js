@@ -1,5 +1,5 @@
 exports.insertEgreso = (datos) => {
-    return `INSERT INTO egreso(id_proyecto, fecha_pago, fecha_diferido_pago, id_forma_pago, id_user, id_analisis_costo, valor_pago, observaciones, cuotas, cuota, id_comprobante_pago, numero_comprobante, id_detalle_ac) 
+    return `INSERT INTO egreso(id_proyecto, fecha_pago, fecha_diferido_pago, id_forma_pago, id_user, id_analisis_costo, valor_pago, valor_usd, observaciones, cuotas, cuota, id_comprobante_pago, numero_comprobante, id_detalle_ac) 
     VALUES (
         '${datos.id_proyecto}',
         '${datos.fecha_pago}',
@@ -8,6 +8,7 @@ exports.insertEgreso = (datos) => {
         '${datos.id_user}',
         '${datos.id_analisis_costo}',
         '${datos.valor_pago}',
+        '${datos.valor_usd}',
         '${datos.observaciones}',
         '${datos.cuota}',
         '${datos.cuotaNumero}',
@@ -20,7 +21,7 @@ exports.insertEgreso = (datos) => {
 exports.listEgresos = () => {
     return `SELECT egreso.id_egreso, egreso.id_proyecto, egreso.fecha_pago, egreso.fecha_diferido_pago, egreso.cuota, egreso.cuotas,
     forma_pago.forma_pago, user.nombre_apellido, analisis_costo.analisis_costo, 
-    egreso.valor_pago, egreso.observaciones, egreso.numero_comprobante,
+    egreso.valor_pago, egreso.valor_usd, egreso.observaciones, egreso.numero_comprobante,
     comprobante_pago.tipo_comprobante, comprobante_pago.nombre_comprobante
     FROM ((((egreso AS egreso 
     INNER JOIN forma_pago AS forma_pago ON egreso.id_forma_pago=forma_pago.id_forma_pago)
@@ -33,7 +34,7 @@ exports.listEgresos = () => {
 exports.listEgresosId = (id) => {
     return `SELECT egreso.id_egreso, egreso.id_proyecto, egreso.fecha_pago, egreso.fecha_diferido_pago, egreso.cuota, egreso.cuotas,
     forma_pago.forma_pago, user.nombre_apellido, analisis_costo.analisis_costo, 
-    egreso.valor_pago, egreso.observaciones, egreso.numero_comprobante,
+    egreso.valor_pago, egreso.valor_usd, egreso.observaciones, egreso.numero_comprobante,
     comprobante_pago.tipo_comprobante, comprobante_pago.nombre_comprobante
     FROM ((((egreso AS egreso 
     INNER JOIN forma_pago AS forma_pago ON egreso.id_forma_pago=forma_pago.id_forma_pago)

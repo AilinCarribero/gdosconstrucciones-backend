@@ -120,7 +120,7 @@ insert into comprobante_pago (tipo_comprobante,nombre_comprobante) value ("Z","C
 
 /*-------------------------------------------------------------------------------------------------------------------------*/
 /* Create new table */
-create table egreso (id_egreso int auto_increment primary key, id_proyecto varchar(60), fecha_pago date, fecha_diferido_pago date, id_forma_pago int, id_user int, id_analisis_costo int, valor_pago float, cuota int, cuotas int, id_comprobante_pago int, numero_comprobante varchar(20), observaciones varchar(10000));
+create table egreso (id_egreso int auto_increment primary key, id_proyecto varchar(60), fecha_pago date, fecha_diferido_pago date, id_forma_pago int, id_user int, id_analisis_costo int, valor_pago float, valor_usd float, cuota int, cuotas int, id_comprobante_pago int, numero_comprobante varchar(20), observaciones varchar(10000));
 
 /* Insert new value so we can test the methods */
 /*insert into egreso (id_proyecto,fecha_pago,fecha_diferido_pago,id_forma_pago,id_user,id_analisis_costo,valor_pago,observaciones) value (""); /*id = 1*/
@@ -145,7 +145,7 @@ insert into forma_cobro (forma_cobro,requiere_f_cobro,requiere_d_cobro,id_centro
 
 /*-------------------------------------------------------------------------------------------------------------------------*/
 /* Create new table */
-create table ingreso (id_ingreso int auto_increment primary key, id_proyecto varchar(60), fecha_cobro date, fecha_diferido_cobro date, id_forma_cobro int, id_user int, valor_cobro float, cuotas int, cuota int, observaciones varchar(10000));
+create table ingreso (id_ingreso int auto_increment primary key, id_proyecto varchar(60), fecha_cobro date, fecha_diferido_cobro date, id_forma_cobro int, id_user int, valor_cobro float, valor_usd float, cuotas int, cuota int, observaciones varchar(10000));
 
 /* Insert new value so we can test the methods */
 /*insert into ingreso () value (""); /*id = 1*/
