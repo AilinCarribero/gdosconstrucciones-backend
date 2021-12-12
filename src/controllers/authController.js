@@ -41,6 +41,7 @@ exports.login = async (req, res) => {
                      if(await bcryptjs.compare(password, response[0].contrasegna)) {
                         const rango = response[0].rango;
                         const id = response[0].id_user;
+                        const nombre_apellido = response[0].nombre_apellido;
 
                         const token = jwt.sign({id: id , rango: rango}, process.env.JWT_SECRET, {
                             expiresIn: process.env.JWT_TIME_EXPIRED
@@ -49,7 +50,8 @@ exports.login = async (req, res) => {
                         res.json({
                             id: id,
                             rango: rango,
-                            token: token
+                            token: token,
+                            nombre_apellido: nombre_apellido
                         });
                     } else {
                         res.send('Contraseña incorrecta')
