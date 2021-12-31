@@ -34,7 +34,7 @@ exports.login = async (req, res) => {
         try {
             bd.query(sql.login(correo), async (err, response) => {
                 if(err){
-
+                    res.send('Correo incorrecto');
                     res.json(err);
                 }
                 if(response){
@@ -62,6 +62,7 @@ exports.login = async (req, res) => {
                 res.end();
             })   
         } catch (error) {
+            res.send('Correo incorrecto');
             return res.json(error);
         }
     }
