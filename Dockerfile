@@ -1,8 +1,8 @@
 FROM node:14
 
-WORKDIR /app
+COPY ["package.json", "package-lock.json", "/app/backend/"]
 
-COPY . /app
+WORKDIR /app/backend/
 
 ENV DB_HOST=btnd44edegiz8nwzvsbs-mysql.services.clever-cloud.com
 ENV DB_PORT=3306
@@ -17,6 +17,9 @@ ENV PORT=5001
 
 RUN npm install
 
+COPY [".", "/app/backend/"]
+
 EXPOSE 5001
 
-CMD ["npm", "run" ,"start"]
+#CMD ["npm", "run" ,"devstart"]
+CMD [ "node", "index.js" ]
